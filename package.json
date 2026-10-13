@@ -1,0 +1,18 @@
+{
+  "name": "sample-yoga-landing-page",
+  "version": "1.0.0",
+  "description": "Sunita Maheshwari Therapeutic Yoga & Hormonal Health Landing Page",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js",
+    "build": "echo 'Build ready'"
+  },
+  "keywords": [
+    "yoga",
+    "wellness",
+    "therapeutic-yoga",
+    "dubai"
+  ],
+  "author": "Sunita Maheshwari",
+  "license": "ISC"
+}
