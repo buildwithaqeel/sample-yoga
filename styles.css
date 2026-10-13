@@ -862,7 +862,7 @@ ul {
 
 .programs-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 320px), 1fr));
   gap: 2rem;
 }
 
@@ -1055,7 +1055,7 @@ ul {
 
 .schedule-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 300px), 1fr));
   gap: 1.6rem;
 }
 
@@ -1244,7 +1244,7 @@ ul {
 /* Pricing Grid */
 .pricing-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 300px), 1fr));
   gap: 2rem;
   align-items: stretch;
 }
@@ -1455,7 +1455,7 @@ ul {
 
 .testimonials-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 300px), 1fr));
   gap: 2rem;
 }
 
@@ -2027,25 +2027,49 @@ ul {
 }
 
 /* ==========================================================================
-   RESPONSIVE DESIGN (MEDIA QUERIES)
+   RESPONSIVE DESIGN (MEDIA QUERIES FOR ALL DEVICES)
    ========================================================================== */
+
+/* Tablet & Intermediate Screens (<= 992px) */
 @media (max-width: 992px) {
   .hero-grid,
   .about-grid,
   .contact-grid,
   .footer-inner {
     grid-template-columns: 1fr;
-    gap: 3rem;
+    gap: 3.5rem;
+  }
+
+  .hero-content {
+    text-align: center;
+  }
+
+  .hero-eyebrow {
+    margin: 0 auto 1.3rem auto;
+  }
+
+  .hero-description {
+    margin: 0 auto 2.2rem auto;
+  }
+
+  .hero-cta-group {
+    justify-content: center;
+  }
+
+  .hero-stats {
+    justify-content: center;
   }
 
   .hero-visual {
-    max-width: 480px;
+    max-width: 460px;
     margin: 0 auto;
+    width: 100%;
   }
 
   .about-image-column {
-    max-width: 480px;
+    max-width: 460px;
     margin: 0 auto;
+    width: 100%;
   }
 
   .nav-menu {
@@ -2054,13 +2078,14 @@ ul {
     left: 0;
     right: 0;
     background-color: #FFFFFF;
-    padding: 2rem 1.5rem;
-    box-shadow: var(--shadow-lg);
+    padding: 2.2rem 2rem;
+    box-shadow: 0 16px 32px rgba(25, 38, 30, 0.12);
     border-bottom: 1px solid rgba(32, 56, 43, 0.1);
     transform: translateY(-120%);
     opacity: 0;
     visibility: hidden;
     transition: all var(--transition-base);
+    z-index: 999;
   }
 
   .nav-menu.open {
@@ -2071,8 +2096,14 @@ ul {
 
   .nav-list {
     flex-direction: column;
-    align-items: flex-start;
-    gap: 1.2rem;
+    align-items: stretch;
+    gap: 1.4rem;
+  }
+
+  .nav-link {
+    font-size: 1.05rem;
+    display: block;
+    padding: 0.5rem 0;
   }
 
   .menu-toggle {
@@ -2084,13 +2115,63 @@ ul {
   }
 }
 
+/* Medium Tablets & Large Phones (<= 768px) */
+@media (max-width: 768px) {
+  .hero-section,
+  .about-section,
+  .programs-section,
+  .schedule-section,
+  .pricing-section,
+  .testimonials-section,
+  .faq-section,
+  .contact-section {
+    padding: 4.5rem 0;
+  }
+
+  .section-title {
+    font-size: 2.3rem;
+  }
+
+  .credentials-slider {
+    gap: 0.85rem 1.4rem;
+  }
+
+  .cred-dot {
+    display: none;
+  }
+
+  .pricing-card.popular {
+    transform: none;
+  }
+
+  .pricing-card.popular:hover {
+    transform: translateY(-6px);
+  }
+
+  .form-container {
+    padding: 2rem 1.5rem;
+  }
+}
+
+/* Mobile Phones (<= 640px) */
 @media (max-width: 640px) {
   .top-announcement {
     display: none;
   }
 
   .hero-title {
-    font-size: 2.2rem;
+    font-size: 2.15rem;
+  }
+
+  .hero-stats {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1.2rem;
+    text-align: center;
+  }
+
+  .stat-divider {
+    display: none;
   }
 
   .pillars-grid,
@@ -2101,26 +2182,147 @@ ul {
 
   .floating-badge {
     position: static;
-    margin-top: 0.75rem;
+    margin-top: 0.85rem;
     animation: none;
+    box-shadow: var(--shadow-sm);
   }
 
   .about-quote-card {
     position: static;
-    margin-top: 1rem;
+    margin-top: 1.2rem;
+    max-width: 100%;
+  }
+
+  .insta-quick-pill {
+    position: static;
+    margin-top: 0.85rem;
+    display: inline-block;
   }
 
   .footer-links-group {
     grid-template-columns: 1fr;
+    gap: 2.5rem;
   }
 
   .free-trial-banner {
     flex-direction: column;
     text-align: center;
+    padding: 1.75rem 1.25rem;
   }
 
   .banner-content {
     flex-direction: column;
     text-align: center;
   }
+
+  .modal-card {
+    padding: 1.6rem 1.25rem;
+    margin: 1rem;
+    max-height: 94vh;
+  }
 }
+
+/* Compact Smartphones (<= 480px) */
+@media (max-width: 480px) {
+  .container {
+    padding-left: 1rem;
+    padding-right: 1rem;
+  }
+
+  .header-inner {
+    height: 4.25rem;
+  }
+
+  .brand-name {
+    font-size: 1.15rem;
+  }
+
+  .brand-tagline {
+    font-size: 0.65rem;
+  }
+
+  .logo-mark {
+    width: 2rem;
+    height: 2rem;
+  }
+
+  .header-actions .open-booking-btn {
+    padding: 0.45rem 0.85rem;
+    font-size: 0.8rem;
+  }
+
+  .btn-icon {
+    width: 2.3rem;
+    height: 2.3rem;
+    font-size: 1.1rem;
+  }
+
+  .hero-cta-group {
+    flex-direction: column;
+    width: 100%;
+  }
+
+  .hero-cta-group .btn {
+    width: 100%;
+  }
+
+  .filter-controls {
+    gap: 0.45rem;
+  }
+
+  .filter-btn {
+    padding: 0.45rem 0.95rem;
+    font-size: 0.8rem;
+  }
+
+  .pricing-switcher {
+    width: 100%;
+    flex-direction: column;
+    border-radius: var(--radius-md);
+  }
+
+  .switch-btn {
+    width: 100%;
+    justify-content: center;
+    border-radius: var(--radius-sm);
+  }
+
+  .pricing-card {
+    padding: 1.8rem 1.25rem;
+  }
+
+  .floating-whatsapp-widget {
+    bottom: 1.2rem;
+    right: 1.2rem;
+  }
+
+  .whatsapp-btn-pulse {
+    width: 3.3rem;
+    height: 3.3rem;
+    font-size: 1.55rem;
+  }
+}
+
+/* Extra Small Screens (<= 360px - iPhone SE, Galaxy Fold cover) */
+@media (max-width: 360px) {
+  .hero-title {
+    font-size: 1.85rem;
+  }
+
+  .brand-tagline {
+    display: none;
+  }
+
+  .header-actions .open-booking-btn span {
+    font-size: 0.75rem;
+  }
+
+  .section-title {
+    font-size: 1.9rem;
+  }
+
+  .price-wrap .price-amount {
+    font-size: 2.4rem;
+  }
+}
+
